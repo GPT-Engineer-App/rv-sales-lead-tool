@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, Container, FormControl, FormLabel, Input, VStack, Heading } from "@chakra-ui/react";
+import { Box, Button, Container, FormControl, FormLabel, Input, VStack, Heading, Text } from "@chakra-ui/react";
 
 const Signup = () => {
   const [username, setUsername] = useState('');
