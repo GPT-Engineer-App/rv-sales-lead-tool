@@ -18,6 +18,9 @@ const Navbar = () => {
           <Button as={Link} to="/signup" colorScheme="teal" variant="solid">
             Signup
           </Button>
+          <Button as={Link} to="/salesman-dashboard" colorScheme="teal" variant="solid" ml={4}>
+            Salesman Dashboard
+          </Button>
         </Flex>
       </Flex>
     </Box>
