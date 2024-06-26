@@ -17,7 +17,7 @@ const Login = () => {
       if (response.success) {
         navigate('/dashboard'); // Redirect to dashboard on successful login
       } else {
-        setError('Invalid email or password');
+        setError('Invalid username or password');
       }
     } catch (err) {
       setError('An error occurred. Please try again.');
