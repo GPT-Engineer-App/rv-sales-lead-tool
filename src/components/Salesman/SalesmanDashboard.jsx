@@ -6,6 +6,7 @@ import SalesPipeline from '../DashboardModules/SalesPipeline';
 import UpcomingAppointments from '../DashboardModules/UpcomingAppointments';
 import LeadAssignment from '../DashboardModules/LeadAssignment';
 import EmailMarketing from '../DashboardModules/EmailMarketing';
+import AdminTools from '../DashboardModules/AdminTools';
 
 const SalesmanDashboard = () => {
   return (
@@ -30,6 +31,9 @@ const SalesmanDashboard = () => {
         </GridItem>
         <GridItem>
           <EmailMarketing />
+        </GridItem>
+        <GridItem colSpan={2}>
+          <AdminTools />
         </GridItem>
       </Grid>
     </Box>
