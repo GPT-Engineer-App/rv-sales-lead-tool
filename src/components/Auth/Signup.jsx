@@ -13,28 +13,23 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Replace with actual API call
-      const response = await fakeApiCall(username, email, password);
-      if (response.success) {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, email, password }),
+      });
+
+      if (response.ok) {
         navigate('/dashboard'); // Redirect to dashboard on successful signup
       } else {
-        setError('Signup failed. Please try again.');
+        const data = await response.json();
+        setError(data.message || 'Signup failed. Please try again.');
       }
     } catch (err) {
       setError('An error occurred. Please try again.');
     }
-  };
-
-  const fakeApiCall = (username, email, password) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        if (username && email && password) {
-          resolve({ success: true });
-        } else {
-          resolve({ success: false });
-        }
-      }, 1000);
-    });
   };
 
   return (
