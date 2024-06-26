@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Button, Container, FormControl, FormLabel, Input, VStack, Heading, Text } from "@chakra-ui/react";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -24,10 +24,10 @@ const Login = () => {
     }
   };
 
-  const fakeApiCall = (email, password) => {
+  const fakeApiCall = (username, password) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        if (email === 'admin' && password === 'password') {
+        if (username === 'admin' && password === 'password') {
           resolve({ success: true });
         } else {
           resolve({ success: false });
@@ -42,9 +42,9 @@ const Login = () => {
         <VStack spacing={4}>
           <Heading as="h1" size="lg">Login</Heading>
           {error && <Text color="red.500">{error}</Text>}
-          <FormControl id="email">
-            <FormLabel>Email address</FormLabel>
-            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <FormControl id="username">
+            <FormLabel>Username</FormLabel>
+            <Input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
           </FormControl>
           <FormControl id="password">
             <FormLabel>Password</FormLabel>
