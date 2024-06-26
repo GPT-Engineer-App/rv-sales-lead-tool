@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     try {
       // Replace with actual API call
-      const response = await fakeApiCall(email, password);
+      const response = await fakeApiCall(username, password);
       if (response.success) {
         navigate('/dashboard'); // Redirect to dashboard on successful login
       } else {
