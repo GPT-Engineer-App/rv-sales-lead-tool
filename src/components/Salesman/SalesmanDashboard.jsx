@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Box, Heading, Text, Grid, GridItem, useToast } from "@chakra-ui/react";
 import KPISummary from '../DashboardModules/KPISummary';
 import RecentLeads from '../DashboardModules/RecentLeads';
@@ -9,11 +9,13 @@ import EmailMarketing from '../DashboardModules/EmailMarketing';
 import AdminTools from '../DashboardModules/AdminTools';
 
 import NewLeadModal from '../Modals/NewLeadModal';
+import { UserContext } from '../../context/UserContext';
 
 const SalesmanDashboard = () => {
   const [greeting, setGreeting] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toast = useToast();
+  const { userRole } = useContext(UserContext);
 
   useEffect(() => {
     const user = 'Salesman'; // Replace with actual user data
@@ -69,9 +71,11 @@ const SalesmanDashboard = () => {
         <GridItem>
           <EmailMarketing />
         </GridItem>
-        <GridItem colSpan={2}>
-          <AdminTools />
-        </GridItem>
+        {userRole === 'admin' && (
+          <GridItem colSpan={2}>
+            <AdminTools />
+          </GridItem>
+        )}
       </Grid>
     <NewLeadModal isOpen={isModalOpen} onSave={handleSave} onCancel={handleCancel} />
     </Box>
